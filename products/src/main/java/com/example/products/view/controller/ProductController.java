@@ -1,6 +1,6 @@
 package com.example.products.view.controller;
 
-import java.lang.StackWalker.Option;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.function.EntityResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -50,8 +49,7 @@ public class ProductController {
 
 
     @PostMapping
-    public ResponseEntity<ProductResponse> postMethodName(@RequestBody ProductRequest product) {
-        //TODO: process POST request
+    public ResponseEntity<ProductResponse> postMethodName(@RequestBody ProductRequest product){
         ProductDTO dto = new ModelMapper().map(product, ProductDTO.class);
         dto = productService.addProduct(dto);
 
